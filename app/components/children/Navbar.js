@@ -1,7 +1,9 @@
 var React = require('react');
 
 var Main = require('../Main.js');
-var Search = require("./Search.js");
+var AddSaveQuote = require("./AddSavedQuote");
+
+import {Link} from "react-router";
 
 const navbarBtn = {
     margin: '0',
@@ -21,13 +23,10 @@ var Navbar = React.createClass({
               </div>
                 <ul className = "nav navbar-nav navbar-right" style={navbarBtn}>
                   <li className = "active">
-                    <a href = "#">Search</a>
+                    <Link to="/add">Add Quote</Link>
                   </li>
                   <li className = "active">
-                    <a href = "#">Results</a>
-                  </li>
-                  <li className = "active">
-                    <a href = "#"> Favorited </a>
+                    <Link to="favorite"> Favorited </Link>
                   </li>
                 </ul>
             </nav>

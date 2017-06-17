@@ -1,39 +1,40 @@
 var React = require('react');
 
 var Navbar = require("./children/Navbar.js");
-var Search = require("./children/Search.js");
-var Results = require("./children/grandchildren/Results.js");
-var Favorited = require('./children/grandchildren/greatGrandChildren/Favorited.js');
+// var router = require('../../routes/routes');
 
 // very basic component to get started
 var Main = React.createClass({
 
- getInitialState: function(){
-  return { 
-    text: "",
-    favorited: false,
-   }  
- },
+getInitialState: function() {
+  return {
 
- componentDidUpdate: function(){
+  }
+},
+componentDidMount: function(){
+  // router.get().then(function(){
+      
+  // })
+},
 
- },
- 
- handleSubmit: function(text){
-    console.log("Main handleSubmit arg: " + text);
-    this.setState({
-      text: text,
-    }); 
-    this.componentDidUpdate();
-  },
+handleChange: function(e) {
+  
+  console.log("handlChange inside Main: ");
+  this.setState({
+    text: e.target.value
+  })
+},
+
 
  render: function(){
+      var children = React.cloneElement(this.props.children, )
+      
       return (     
         <div className = "row">
           <Navbar />
-          <Search handleSubmit={this.handleSubmit} />
-          <Results handleSubmit={this.handleSubmit} />
-          <Favorited />
+            <div className = "container">
+              {this.props.children}
+            </div>
         </div>
      )
    }
